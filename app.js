@@ -7,7 +7,15 @@ app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
  
 app.get('/', function (req, res) {
-    res.render('home');
+    res.render('home', {
+        title:"Главная"
+    });
 });
  
+app.get('/contact', function (req, res) {
+    res.render('contact', {
+        title:"Контакты"
+    });
+});
+
 app.listen(3000);
