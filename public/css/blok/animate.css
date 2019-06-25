@@ -1,0 +1,13 @@
+/*!
+ * Start Bootstrap - Basic v5.1.4 (https://startbootstrap.com/template-overviews/creative)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-creative/blob/master/LICENSE)
+ */
+
+#animation1 {
+  height: 500px;
+}
+
+#animation1.active {
+  background-color: red;
+}

@@ -1,0 +1,105 @@
+/*!
+ * Start Bootstrap - Basic v5.1.4 (https://startbootstrap.com/template-overviews/creative)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-creative/blob/master/LICENSE)
+ */
+
+.tabs_content {
+  background: url(../img/inxtn-work.jpg) no-repeat;
+  height: 49%;
+  min-height: 7.625rem;
+  /* position: relative; */
+  /* display: flex; */
+  overflow: hidden;
+  background-color: #292a2bd9;
+  -webkit-box-shadow: 0px 63px 0px 29px rgba(14, 14, 14, 0.6);
+  box-shadow: 0px 63px 0px 29px rgba(14, 14, 14, 0.6);
+}
+
+#tabs {
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#tabs li {
+  float: left;
+  margin: 0 .5em 0 0;
+}
+
+#tabs a {
+  position: relative;
+  background: #383434;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#7d7c7c), to(#000));
+  background-image: linear-gradient(to bottom, #7d7c7c, #000);
+  padding: 0.7em 3.5em;
+  float: left;
+  text-decoration: none;
+  color: #4bbcdc;
+  /* text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8); */
+  border-radius: 5px 0 0 0;
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+}
+
+#tabs a:hover,
+#tabs a:hover::after,
+#tabs a:focus,
+#tabs a:focus::after {
+  background: #fff;
+}
+
+#tabs a:focus {
+  outline: 0;
+}
+
+#tabs a::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: -.5em;
+  bottom: 0;
+  width: 1em;
+  background: #d4cfcf;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#4c4040), to(#d8d8d8));
+  background-image: linear-gradient(to bottom, #4c4040, #d8d8d8);
+  -webkit-box-shadow: 1px 2px 2px rgba(2, 2, 2, 0.4);
+  box-shadow: 1px 2px 2px rgba(2, 2, 2, 0.4);
+  -webkit-transform: skew(10deg);
+  transform: skew(10deg);
+  border-radius: 0 5px 0 0;
+}
+
+#tabs #current a,
+#tabs #current a::after {
+  background: #5d5d5d;
+  z-index: 3;
+}
+
+#content {
+  background: #d0d0d0;
+  padding: 2em;
+  height: 220px;
+  position: relative;
+  z-index: 2;
+  border-radius: 0 5px 5px 5px;
+  -webkit-box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, 0.5);
+}
+
+#tab1 {
+  display: block;
+  padding: 0px 16px 0px 0px;
+  color: #040101;
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-style: normal;
+  text-decoration: none;
+  line-height: 22px;
+  letter-spacing: 1.2px;
+}

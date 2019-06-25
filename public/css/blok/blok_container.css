@@ -1,0 +1,55 @@
+/*!
+ * Start Bootstrap - Basic v5.1.4 (https://startbootstrap.com/template-overviews/creative)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-creative/blob/master/LICENSE)
+ */
+
+.blok_container {
+  padding: 50px 0;
+}
+
+.blok_container-about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.blok_container-about-text-title {
+  padding: 0px 10px 0px 0px;
+  color: #4bbcce;
+  font-family: "Montserrat", Sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  /* text-transform: uppercase; */
+  font-style: normal;
+  text-decoration: none;
+  line-height: 38px;
+  letter-spacing: 2.2px;
+}
+
+.blok_container-about-img-list {
+  padding: 0px 10px 0px 0px;
+  color: #2c2d2f;
+  font-family: "Montserrat", Sans-serif;
+  font-size: 31px;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-style: normal;
+  text-decoration: none;
+  line-height: 39px;
+  letter-spacing: 6.2px;
+  text-align: left;
+}
+
+.blok_container-about-text-items {
+  padding: 0px 10px 0px 0px;
+  color: #2c2d2f;
+  font-family: "Montserrat", Sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  /* text-transform: uppercase; */
+  font-style: normal;
+  text-decoration: none;
+  line-height: 38px;
+  letter-spacing: 2.2px;
+}

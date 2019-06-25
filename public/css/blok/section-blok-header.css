@@ -1,0 +1,31 @@
+/*!
+ * Start Bootstrap - Basic v5.1.4 (https://startbootstrap.com/template-overviews/creative)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-creative/blob/master/LICENSE)
+ */
+
+.blok {
+  background: #eaebef;
+}
+
+.blok_contacts {
+  background-color: #040101;
+  -webkit-box-shadow: 0px 45px 0px 10px #040101;
+  box-shadow: 0px 45px 0px 10px #040101;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 1px 0px 1px 0px;
+  z-index: 1;
+}
+
+.navigation_menu-blok {
+  margin-top: -11px;
+  margin-bottom: 0px;
+  padding: -3px 1px 6px 0px;
+  z-index: 3;
+}
+
+.navigation_menu-logo:hover,
+.navigation_menu-logo::after {
+  color: #4bbcdc;
+}

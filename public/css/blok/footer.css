@@ -1,0 +1,62 @@
+/*!
+ * Start Bootstrap - Basic v5.1.4 (https://startbootstrap.com/template-overviews/creative)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-creative/blob/master/LICENSE)
+ */
+
+.footer {
+  margin-top: 36px;
+  padding-top: 18px;
+  color: #ffffff;
+  background-color: #849d8f;
+}
+
+.footer .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.footer-social {
+  width: 147px;
+  margin: 0;
+  margin-right: 214px;
+  min-height: 38px;
+}
+
+.footer-info {
+  width: 326px;
+  min-height: 38px;
+}
+
+.footer-info,
+.footer-social {
+  list-style: none;
+}
+
+.footer-info a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer-info a:hover,
+.footer-info a:focus {
+  color: #ffbc9e;
+}
+
+.footer-info {
+  text-align: center;
+}
+
+.footer-copyright {
+  width: 189px;
+  min-height: 59px;
+  margin-left: auto;
+  color: #ffffff;
+  text-align: left;
+}
+
+.footer-copyright .footer-button:hover,
+.footer-copyright .footer-button:focus {
+  color: #ffbc9e;
+}
