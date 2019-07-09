@@ -17,8 +17,35 @@ app.use(sassMiddleware({
 }));
 
 app.get('/', function (req, res) {
+ 
+    const items = [
+        {
+            title: "ice-cream shop", 
+            description: "best ice-cream shop. best ice-cream shop. best ice-cream shop. best ice-cream shop.",
+            button: "open project",
+            url: "https://bk.asia-city.com/restaurants/news/ice-cream-shops-bangkok",
+            img: "/img/ice-cream.jpg"
+        },
+        {
+            title: "game app shop", 
+            description: "game app shop. game app shop. game app shop. game app shop.",
+            button: "play game",
+            url: "https://www.androidauthority.com/best-game-apps-android-885955/",
+            img: "/img/game-app.jpg"
+        },
+        {
+            title: "game app shop", 
+            description: "game app shop. game app shop. game app shop. game app shop.",
+            button: "play game",
+            url: "https://www.androidauthority.com/best-game-apps-android-885955/",
+            img: "/img/game-app.jpg"
+        }
+    ]
+
+
     res.render('home', {
-        title:"Главная"
+        title:"Главная", 
+        items: items
     });
 });
  

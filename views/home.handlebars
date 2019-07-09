@@ -164,3 +164,44 @@
     </div>
     </div>
 </section>
+
+<section>
+    <div class="container">
+        <div class="my-flipster">
+            <ul>
+                {{#each items}}
+                <li>
+                    <div class="card">
+                        <img src="{{img}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{title}}</h5>
+                            <p class="card-text">{{description}}</p>
+                            <a href="{{url}}" target="_blank" class="btn btn-primary">{{button}}</a>
+                        </div>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            {{#each items}}
+             <div class="col-md-4">
+                <div class="card">
+                    <img src="{{img}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{title}}</h5>
+                        <p class="card-text">{{description}}</p>
+                        <a href="{{url}}" target="_blank" class="btn btn-primary">{{button}}</a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            
+        </div>
+    </div>
+</section>

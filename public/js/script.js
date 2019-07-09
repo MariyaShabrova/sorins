@@ -28,8 +28,13 @@ setInterval (function() {
 
 
 //
+var myFlipster;
 
 $(document).ready(function() {
+
+	myFlipster = $('.my-flipster').flipster();
+
+
 	$("#content div").hide(); // Скрываем содержание
 	$("#tabs li:first").attr("id","current"); // Активируем первую закладку
 	$("#content div:first").fadeIn(); // Выводим содержание
