@@ -114,7 +114,7 @@
   transition: background 200ms ease;
 }
 
-.view-gallerys button:hover {
+.view-gallerys  {
   cursor: pointer;
   background: #4394ab;
 }

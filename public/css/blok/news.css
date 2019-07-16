@@ -255,11 +255,11 @@ h2 {
 }
 
 .button:hover:before {
-  background-color: #ccc370;
+  background-color: #f2f3eb;
 }
 
 button:hover {
-  background-color: #ccc370;
+  background-color: #f2f3eb;
 }
 
 .subscribe-form {
