@@ -27,162 +27,8 @@ setInterval (function() {
 }, 5000);*/
 
 
-//Карусель вторая секция
-
-$(function() {
-
-	$( '#mi-slider' ).catslider();
-
-});
 
 
-;( function( $, window, undefined ) {
-
-'use strict';
-
-$.CatSlider = function( options, element ) {
-this.$el = $( element );
-this._init( options );
-};
-
-$.CatSlider.prototype = {
-
-_init : function( options ) {
-
-// Категории (ul)
-this.$categories = this.$el.children( 'ul' );
-// Навигация
-this.$navcategories = this.$el.find( 'nav > a' );
-var animEndEventNames = {
-	'WebkitAnimation' : 'webkitAnimationEnd',
-	'OAnimation' : 'oAnimationEnd',
-	'msAnimation' : 'MSAnimationEnd',
-	'animation' : 'animationend'
-};
-// Название анимации и события
-this.animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ];
-// Поддержка анимаций и событий
-this.support = Modernizr.csstransforms && Modernizr.cssanimations;
-// Если анимация проводится
-this.isAnimating = false;
-// Текущая категория
-this.current = 0;
-var $currcat = this.$categories.eq( 0 );
-if( !this.support ) {
-	this.$categories.hide();
-	$currcat.show();
-}
-else {
-	$currcat.addClass( 'mi-current' );
-}
-// Текущая категория навигации
-this.$navcategories.eq( 0 ).addClass( 'mi-selected' );
-// Инициализация событий
-this._initEvents();
-
-},
-_initEvents : function() {
-
-var self = this;
-this.$navcategories.on( 'click.catslider', function() {
-	self.showCategory( $( this ).index() );
-	return false;
-} );
-
-// Сброс при измении размеров окна
-$( window ).on( 'resize', function() {
-	self.$categories.removeClass().eq( 0 ).addClass( 'mi-current' );
-	self.$navcategories.eq( self.current ).removeClass( 'mi-selected' ).end().eq( 0 ).addClass( 'mi-selected' );
-	self.current = 0;
-} );
-
-},
-showCategory : function( catidx ) {
-
-if( catidx === this.current || this.isAnimating ) {
-	return false;
-}
-this.isAnimating = true;
-// Обновляем выбранную навигацию
-this.$navcategories.eq( this.current ).removeClass( 'mi-selected' ).end().eq( catidx ).addClass( 'mi-selected' );
-
-var dir = catidx > this.current ? 'right' : 'left',
-	toClass = dir === 'right' ? 'mi-moveToLeft' : 'mi-moveToRight',
-	fromClass = dir === 'right' ? 'mi-moveFromRight' : 'mi-moveFromLeft',
-	// Текущая категория
-	$currcat = this.$categories.eq( this.current ),
-	// Новая категория
-	$newcat = this.$categories.eq( catidx ),
-	$newcatchild = $newcat.children(),
-	lastEnter = dir === 'right' ? $newcatchild.length - 1 : 0,
-	self = this;
-
-if( this.support ) {
-
-	$currcat.removeClass().addClass( toClass );
-	
-	setTimeout( function() {
-
-		$newcat.removeClass().addClass( fromClass );
-		$newcatchild.eq( lastEnter ).on( self.animEndEventName, function() {
-
-			$( this ).off( self.animEndEventName );
-			$newcat.addClass( 'mi-current' );
-			self.current = catidx;
-			var $this = $( this );
-			// Решение для ошибки в Chrome 
-			self.forceRedraw( $this.get(0) );
-			self.isAnimating = false;
-
-		} );
-
-	}, $newcatchild.length * 90 );
-
-}
-else {
-
-	$currcat.hide();
-	$newcat.show();
-	this.current = catidx;
-	this.isAnimating = false;
-
-}
-
-},
-// На основании http://stackoverflow.com/a/8840703/989439
-forceRedraw : function(element) {
-if (!element) { return; }
-var n = document.createTextNode(' '),
-	position = element.style.position;
-element.appendChild(n);
-element.style.position = 'relative';
-setTimeout(function(){
-	element.style.position = position;
-	n.parentNode.removeChild(n);
-}, 25);
-}
-
-}
-
-$.fn.catslider = function( options ) {
-var instance = $.data( this, 'catslider' );
-if ( typeof options === 'string' ) {
-var args = Array.prototype.slice.call( arguments, 1 );
-this.each(function() {
-	instance[ options ].apply( instance, args );
-});
-}
-else {
-this.each(function() {
-	instance ? instance._init() : instance = $.data( this, 'catslider', new $.CatSlider( options, this ) );
-});
-}
-return instance;
-};
-
-} )( jQuery, window );
-
-//
 var myFlipster;
 
 $(document).ready(function() {
@@ -204,6 +50,160 @@ $(document).ready(function() {
 });
 
 
+//Карусель вторая секция
+
+			$(function() {
+
+				$( '#mi-slider' ).catslider();
+
+			});
+	
+
+;( function( $, window, undefined ) {
+
+	'use strict';
+
+	$.CatSlider = function( options, element ) {
+		this.$el = $( element );
+		this._init( options );
+	};
+
+	$.CatSlider.prototype = {
+
+		_init : function( options ) {
+
+			// Категории (ul)
+			this.$categories = this.$el.children( 'ul' );
+			// Навигация
+			this.$navcategories = this.$el.find( 'nav > a' );
+			var animEndEventNames = {
+				'WebkitAnimation' : 'webkitAnimationEnd',
+				'OAnimation' : 'oAnimationEnd',
+				'msAnimation' : 'MSAnimationEnd',
+				'animation' : 'animationend'
+			};
+			// Название анимации и события
+			this.animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ];
+			// Поддержка анимаций и событий
+			this.support = Modernizr.csstransforms && Modernizr.cssanimations;
+			// Если анимация проводится
+			this.isAnimating = false;
+			// Текущая категория
+			this.current = 0;
+			var $currcat = this.$categories.eq( 0 );
+			if( !this.support ) {
+				this.$categories.hide();
+				$currcat.show();
+			}
+			else {
+				$currcat.addClass( 'mi-current' );
+			}
+			// Текущая категория навигации
+			this.$navcategories.eq( 0 ).addClass( 'mi-selected' );
+			// Инициализация событий
+			this._initEvents();
+
+		},
+		_initEvents : function() {
+
+			var self = this;
+			this.$navcategories.on( 'click.catslider', function() {
+				self.showCategory( $( this ).index() );
+				return false;
+			} );
+
+			// Сброс при измении размеров окна
+			$( window ).on( 'resize', function() {
+				self.$categories.removeClass().eq( 0 ).addClass( 'mi-current' );
+				self.$navcategories.eq( self.current ).removeClass( 'mi-selected' ).end().eq( 0 ).addClass( 'mi-selected' );
+				self.current = 0;
+			} );
+
+		},
+		showCategory : function( catidx ) {
+
+			if( catidx === this.current || this.isAnimating ) {
+				return false;
+			}
+			this.isAnimating = true;
+			// Обновляем выбранную навигацию
+			this.$navcategories.eq( this.current ).removeClass( 'mi-selected' ).end().eq( catidx ).addClass( 'mi-selected' );
+
+			var dir = catidx > this.current ? 'right' : 'left',
+				toClass = dir === 'right' ? 'mi-moveToLeft' : 'mi-moveToRight',
+				fromClass = dir === 'right' ? 'mi-moveFromRight' : 'mi-moveFromLeft',
+				// Текущая категория
+				$currcat = this.$categories.eq( this.current ),
+				// Новая категория
+				$newcat = this.$categories.eq( catidx ),
+				$newcatchild = $newcat.children(),
+				lastEnter = dir === 'right' ? $newcatchild.length - 1 : 0,
+				self = this;
+
+			if( this.support ) {
+
+				$currcat.removeClass().addClass( toClass );
+				
+				setTimeout( function() {
+
+					$newcat.removeClass().addClass( fromClass );
+					$newcatchild.eq( lastEnter ).on( self.animEndEventName, function() {
+
+						$( this ).off( self.animEndEventName );
+						$newcat.addClass( 'mi-current' );
+						self.current = catidx;
+						var $this = $( this );
+						// Решение для ошибки в Chrome 
+						self.forceRedraw( $this.get(0) );
+						self.isAnimating = false;
+
+					} );
+
+				}, $newcatchild.length * 90 );
+
+			}
+			else {
+
+				$currcat.hide();
+				$newcat.show();
+				this.current = catidx;
+				this.isAnimating = false;
+
+			}
+
+		},
+		// На основании http://stackoverflow.com/a/8840703/989439
+		forceRedraw : function(element) {
+			if (!element) { return; }
+			var n = document.createTextNode(' '),
+				position = element.style.position;
+			element.appendChild(n);
+			element.style.position = 'relative';
+			setTimeout(function(){
+				element.style.position = position;
+				n.parentNode.removeChild(n);
+			}, 25);
+		}
+
+	}
+
+	$.fn.catslider = function( options ) {
+		var instance = $.data( this, 'catslider' );
+		if ( typeof options === 'string' ) {
+			var args = Array.prototype.slice.call( arguments, 1 );
+			this.each(function() {
+				instance[ options ].apply( instance, args );
+			});
+		}
+		else {
+			this.each(function() {
+				instance ? instance._init() : instance = $.data( this, 'catslider', new $.CatSlider( options, this ) );
+			});
+		}
+		return instance;
+	};
+
+} )( jQuery, window );
 
 //
 
@@ -332,7 +332,84 @@ jQuery(document).ready(function($){
 	}*/
 
 });
+ // Портфолио
 
+ jQuery(document).ready(function($){
+	var gallery = $('.cd-gallery'),
+		foldingPanel = $('.cd-folding-panel'),
+		mainContent = $('.cd-main');
+	/* open folding content */
+	gallery.on('click', 'a', function(event){
+		event.preventDefault();
+		openItemInfo($(this).attr('href'));
+	});
+
+	/* close folding content */
+	foldingPanel.on('click', '.cd-close', function(event){
+		event.preventDefault();
+		toggleContent('', false);
+	});
+	gallery.on('click', function(event){
+		/* detect click on .cd-gallery::before when the .cd-folding-panel is open */
+		if($(event.target).is('.cd-gallery') && $('.fold-is-open').length > 0 ) toggleContent('', false);
+	})
+
+	function openItemInfo(url) {
+		var mq = viewportSize();
+		if( gallery.offset().top > $(window).scrollTop() && mq != 'mobile') {
+			/* if content is visible above the .cd-gallery - scroll before opening the folding panel */
+			$('body,html').animate({
+				'scrollTop': gallery.offset().top
+			}, 100, function(){ 
+	           	toggleContent(url, true);
+	        }); 
+	    } else if( gallery.offset().top + gallery.height() < $(window).scrollTop() + $(window).height()  && mq != 'mobile' ) {
+			/* if content is visible below the .cd-gallery - scroll before opening the folding panel */
+			$('body,html').animate({
+				'scrollTop': gallery.offset().top + gallery.height() - $(window).height()
+			}, 100, function(){ 
+	           	toggleContent(url, true);
+	        });
+		} else {
+			toggleContent(url, true);
+		}
+	}
+
+	function toggleContent(url, bool) {
+		if( bool ) {
+			/* load and show new content */
+			var foldingContent = foldingPanel.find('.cd-fold-content');
+			foldingContent.load(url+' .cd-fold-content > *', function(event){
+				setTimeout(function(){
+					$('body').addClass('overflow-hidden');
+					foldingPanel.addClass('is-open');
+					mainContent.addClass('fold-is-open');
+				}, 100);
+				
+			});
+		} else {
+			/* close the folding panel */
+			var mq = viewportSize();
+			foldingPanel.removeClass('is-open');
+			mainContent.removeClass('fold-is-open');
+			
+			(mq == 'mobile' || $('.no-csstransitions').length > 0 ) 
+				/* according to the mq, immediately remove the .overflow-hidden or wait for the end of the animation */
+				? $('body').removeClass('overflow-hidden')
+				
+				: mainContent.find('.cd-item').eq(0).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+					$('body').removeClass('overflow-hidden');
+					mainContent.find('.cd-item').eq(0).off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
+				});
+		}
+		
+	}
+
+	function viewportSize() {
+		/* retrieve the content value of .cd-main::before to check the actua mq */
+		return window.getComputedStyle(document.querySelector('.cd-main'), '::before').getPropertyValue('content').replace(/"/g, "").replace(/'/g, "");
+	}
+});
 
 
 //credits http://css-tricks.com/snippets/jquery/move-cursor-to-end-of-textarea-or-input/
@@ -806,3 +883,5 @@ $(function() {
 	new ScrollMagic.Scene({triggerElement: "#animation1"})
 					.setClassToggle("#animation1", "active") // add class toggle
 					.addTo(controller);
+
+
