@@ -54,6 +54,11 @@ app.get('/team', function (req, res) {
         title:"Команда"
     });
 });
+app.get('/state', function (req, res) {
+    res.render('state', {
+        title:"Команда"
+    });
+});
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(3000);
